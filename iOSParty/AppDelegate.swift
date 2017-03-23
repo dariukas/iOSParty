@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iOSParty
 //
-//  Created by Kristina Šlekytė on 21/03/2017.
+//  Created by Darius Miliauskas on 21/03/2017.
 //  Copyright © 2017 Darius Miliauskas. All rights reserved.
 //
 
@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
