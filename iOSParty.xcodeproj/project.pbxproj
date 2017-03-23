@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A35BACAB1E83553F004B9310 /* iOSPartySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35BACAA1E83553E004B9310 /* iOSPartySession.swift */; };
 		A35BACBF1E835D92004B9310 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A35BACBD1E835D92004B9310 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A35BACC31E835DFA004B9310 /* RNCryptor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A35BACC11E835DFA004B9310 /* RNCryptor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A35BACC71E83CBD1004B9310 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35BACC61E83CBD1004B9310 /* UserModel.swift */; };
@@ -15,6 +14,8 @@
 		A36A95501E8412EB00BDE440 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A954D1E8412EB00BDE440 /* LoadingViewController.swift */; };
 		A36A95511E8412EB00BDE440 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A954E1E8412EB00BDE440 /* LoginViewController.swift */; };
 		A36A95521E8412EB00BDE440 /* ServersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A954F1E8412EB00BDE440 /* ServersViewController.swift */; };
+		A36A95811E841AF100BDE440 /* iOSPartySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A95801E841AF100BDE440 /* iOSPartySession.swift */; };
+		A36A95841E84203E00BDE440 /* LoginToLoadingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */; };
 		A3D8A73A1E80B9B900EDDD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8A7391E80B9B900EDDD04 /* AppDelegate.swift */; };
 		A3D8A73F1E80B9B900EDDD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D8A73D1E80B9B900EDDD04 /* Main.storyboard */; };
 		A3D8A7411E80B9B900EDDD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D8A7401E80B9B900EDDD04 /* Assets.xcassets */; };
@@ -48,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A35BACAA1E83553E004B9310 /* iOSPartySession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSPartySession.swift; sourceTree = "<group>"; };
 		A35BACBD1E835D92004B9310 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		A35BACC11E835DFA004B9310 /* RNCryptor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNCryptor.framework; path = Carthage/Build/iOS/RNCryptor.framework; sourceTree = "<group>"; };
 		A35BACC61E83CBD1004B9310 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		A36A954D1E8412EB00BDE440 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		A36A954E1E8412EB00BDE440 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A36A954F1E8412EB00BDE440 /* ServersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServersViewController.swift; sourceTree = "<group>"; };
+		A36A95801E841AF100BDE440 /* iOSPartySession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSPartySession.swift; sourceTree = "<group>"; };
+		A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginToLoadingSegue.swift; sourceTree = "<group>"; };
 		A3D8A7361E80B9B900EDDD04 /* iOSParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D8A7391E80B9B900EDDD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D8A73E1E80B9B900EDDD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,14 +87,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A35BACA91E83552B004B9310 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				A35BACAA1E83553E004B9310 /* iOSPartySession.swift */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		A35BACC41E83CBB0004B9310 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,13 +94,6 @@
 				A35BACC81E83E01A004B9310 /* ServerModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A35BACC51E83CBBC004B9310 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		A36A954C1E8412EB00BDE440 /* ViewControllers */ = {
@@ -119,10 +106,25 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		A36A957F1E841AF100BDE440 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A36A95801E841AF100BDE440 /* iOSPartySession.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A36A95821E841FDD00BDE440 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
 		A3D8A72D1E80B9B900EDDD04 = {
 			isa = PBXGroup;
 			children = (
-				A35BACA91E83552B004B9310 /* Other */,
 				A35BACC11E835DFA004B9310 /* RNCryptor.framework */,
 				A35BACBD1E835D92004B9310 /* Alamofire.framework */,
 				A3D8A7381E80B9B900EDDD04 /* iOSParty */,
@@ -143,8 +145,9 @@
 		A3D8A7381E80B9B900EDDD04 /* iOSParty */ = {
 			isa = PBXGroup;
 			children = (
+				A36A95821E841FDD00BDE440 /* Segues */,
+				A36A957F1E841AF100BDE440 /* Utils */,
 				A36A954C1E8412EB00BDE440 /* ViewControllers */,
-				A35BACC51E83CBBC004B9310 /* Utils */,
 				A35BACC41E83CBB0004B9310 /* Models */,
 				A3D8A7391E80B9B900EDDD04 /* AppDelegate.swift */,
 				A3D8A73D1E80B9B900EDDD04 /* Main.storyboard */,
@@ -269,12 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36A95511E8412EB00BDE440 /* LoginViewController.swift in Sources */,
-				A35BACAB1E83553F004B9310 /* iOSPartySession.swift in Sources */,
 				A35BACC91E83E01A004B9310 /* ServerModel.swift in Sources */,
 				A35BACC71E83CBD1004B9310 /* UserModel.swift in Sources */,
 				A3D8A73A1E80B9B900EDDD04 /* AppDelegate.swift in Sources */,
 				A36A95521E8412EB00BDE440 /* ServersViewController.swift in Sources */,
 				A36A95501E8412EB00BDE440 /* LoadingViewController.swift in Sources */,
+				A36A95811E841AF100BDE440 /* iOSPartySession.swift in Sources */,
+				A36A95841E84203E00BDE440 /* LoginToLoadingSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
