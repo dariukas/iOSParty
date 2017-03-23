@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "commitish" : "RNCryptor-5.0.1",
+  "iOS" : [
+    {
+      "hash" : "6c85118d7965df3e9c70c27fbca9082740608f225c7bd101331977ba03167b44",
+      "name" : "RNCryptor"
+    }
+  ]
+}
