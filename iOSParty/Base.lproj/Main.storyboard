@@ -6,8 +6,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,17 +31,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmg-9S-NtN">
-                                <rect key="frame" x="141" y="402" width="120" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmg-9S-NtN">
+                                <rect key="frame" x="62.5" y="520" width="250" height="50"/>
+                                <color key="backgroundColor" red="0.62352941176470589" green="0.83529411764705885" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qmg-9S-NtN" secondAttribute="height" multiplier="15:3" id="6G5-O4-W3V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfx-6C-bgI"/>
                                     <segue destination="APM-pD-pln" kind="show" customClass="LoginToLoadingSegue" customModule="iOSParty" customModuleProvider="target" id="JGf-VX-mgf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-light" translatesAutoresizingMaskIntoConstraints="NO" id="aRT-sr-DJt">
+                                <rect key="frame" x="112.5" y="200" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aRT-sr-DJt" secondAttribute="height" multiplier="15:4" id="Qbz-Ao-xk2"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-2j-k21">
+                                <rect key="frame" x="62.5" y="408" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dZs-2j-k21" secondAttribute="height" multiplier="15:3" id="wmu-cs-7tn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="yGs-F2-A0M"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="RGB-Ht-ah8">
+                                <rect key="frame" x="62.5" y="464" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RGB-Ht-ah8" secondAttribute="height" multiplier="15:3" id="ilo-yH-fMg"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ods-wD-8bB"/>
+                                </connections>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qmg-9S-NtN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3zt-xM-7UC"/>
+                            <constraint firstItem="dZs-2j-k21" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Ix-g9-dqx"/>
+                            <constraint firstItem="dZs-2j-k21" firstAttribute="width" secondItem="Qmg-9S-NtN" secondAttribute="width" id="END-jw-FaF"/>
+                            <constraint firstItem="aRT-sr-DJt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="180" id="H2K-uS-8QC"/>
+                            <constraint firstItem="dZs-2j-k21" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="2:3" id="IME-Ol-wdk"/>
+                            <constraint firstItem="aRT-sr-DJt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="3:50" id="KdU-4b-Rt6"/>
+                            <constraint firstItem="dZs-2j-k21" firstAttribute="top" secondItem="aRT-sr-DJt" secondAttribute="bottom" constant="168" id="NoB-Et-lhW"/>
+                            <constraint firstItem="RGB-Ht-ah8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PZq-00-uEh"/>
+                            <constraint firstItem="RGB-Ht-ah8" firstAttribute="width" secondItem="dZs-2j-k21" secondAttribute="width" id="lFL-r9-M2j"/>
+                            <constraint firstItem="aRT-sr-DJt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lhg-BV-FWW"/>
+                            <constraint firstItem="RGB-Ht-ah8" firstAttribute="top" secondItem="dZs-2j-k21" secondAttribute="bottom" constant="6" id="sqv-OQ-VqU"/>
+                            <constraint firstItem="Qmg-9S-NtN" firstAttribute="top" secondItem="RGB-Ht-ah8" secondAttribute="bottom" constant="6" id="vAt-Sp-2Wf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Qmg-9S-NtN" id="vOk-mX-EjV"/>
+                        <outlet property="passwordTextField" destination="RGB-Ht-ah8" id="Lsa-Jl-w9Y"/>
+                        <outlet property="usernameTextField" destination="dZs-2j-k21" id="HHO-fz-c1i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,12 +114,25 @@
                     <view key="view" contentMode="scaleToFill" id="7fl-WX-sMG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPR-JM-zQV" customClass="SpinnerLoaderView" customModule="iOSParty" customModuleProvider="target">
+                                <rect key="frame" x="106.5" y="250" width="162" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SPR-JM-zQV" secondAttribute="height" multiplier="240:247" id="PGD-ef-FCX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SPR-JM-zQV" firstAttribute="centerY" secondItem="7fl-WX-sMG" secondAttribute="centerY" id="KCU-Ed-RIH"/>
+                            <constraint firstItem="SPR-JM-zQV" firstAttribute="centerX" secondItem="7fl-WX-sMG" secondAttribute="centerX" id="fBz-us-N18"/>
+                            <constraint firstItem="SPR-JM-zQV" firstAttribute="height" secondItem="7fl-WX-sMG" secondAttribute="height" multiplier="1:4" id="x32-wF-URg"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGd-5J-QU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-27"/>
+            <point key="canvasLocation" x="541.60000000000002" y="-27.436281859070466"/>
         </scene>
         <!--Servers View Controller-->
         <scene sceneID="YX3-Sc-q30">
@@ -84,4 +163,7 @@
             <point key="canvasLocation" x="1308" y="-23"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-light" width="246" height="64"/>
+    </resources>
 </document>
