@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eGJ-gS-zfY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +18,9 @@
         </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -115,20 +120,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPR-JM-zQV" customClass="SpinnerLoaderView" customModule="iOSParty" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPR-JM-zQV" customClass="CircularLoaderView" customModule="iOSParty" customModuleProvider="target">
                                 <rect key="frame" x="106.5" y="250" width="162" height="167"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SPR-JM-zQV" secondAttribute="height" multiplier="240:247" id="PGD-ef-FCX"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching the list..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcq-bc-aue">
+                                <rect key="frame" x="119" y="588.5" width="137" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jcq-bc-aue" firstAttribute="centerX" secondItem="7fl-WX-sMG" secondAttribute="centerX" id="772-aD-KwF"/>
+                            <constraint firstItem="Qt2-2Q-ryW" firstAttribute="top" secondItem="Jcq-bc-aue" secondAttribute="bottom" constant="56" id="Jkc-So-LT3"/>
                             <constraint firstItem="SPR-JM-zQV" firstAttribute="centerY" secondItem="7fl-WX-sMG" secondAttribute="centerY" id="KCU-Ed-RIH"/>
                             <constraint firstItem="SPR-JM-zQV" firstAttribute="centerX" secondItem="7fl-WX-sMG" secondAttribute="centerX" id="fBz-us-N18"/>
                             <constraint firstItem="SPR-JM-zQV" firstAttribute="height" secondItem="7fl-WX-sMG" secondAttribute="height" multiplier="1:4" id="x32-wF-URg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loaderView" destination="SPR-JM-zQV" id="n3m-FT-KsF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGd-5J-QU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,13 +159,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Jlz-Pi-OqA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" id="aRi-gb-uWn" customClass="ServerTableViewCell" customModule="iOSParty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aRi-gb-uWn" id="beV-K8-VmD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Jlz-Pi-OqA" customClass="ServerTableViewCell" customModule="iOSParty" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jlz-Pi-OqA" id="QAE-t4-Jxh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMa-xP-5fW">
+                                            <rect key="frame" x="14" y="10.5" width="42" height="22.5"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-tH-LOb">
+                                            <rect key="frame" x="265.5" y="10.5" width="42" height="22.5"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oMa-xP-5fW" firstAttribute="centerY" secondItem="QAE-t4-Jxh" secondAttribute="centerY" id="E5S-7q-WKT"/>
+                                        <constraint firstItem="oMa-xP-5fW" firstAttribute="leading" secondItem="QAE-t4-Jxh" secondAttribute="leadingMargin" constant="6" id="LQB-UD-LZF"/>
+                                        <constraint firstItem="wMK-tH-LOb" firstAttribute="centerY" secondItem="QAE-t4-Jxh" secondAttribute="centerY" id="TcS-Ff-4ND"/>
+                                        <constraint firstItem="wMK-tH-LOb" firstAttribute="leading" secondItem="QAE-t4-Jxh" secondAttribute="centerXWithinMargins" constant="78" id="hCT-ep-dRD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="distanceLabel" destination="wMK-tH-LOb" id="8iY-8q-38F"/>
+                                    <outlet property="nameLabel" destination="oMa-xP-5fW" id="NMh-gM-sBK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -157,6 +206,7 @@
                             <outlet property="delegate" destination="eGJ-gS-zfY" id="6qU-WA-GKX"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxg-eZ-Ne1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

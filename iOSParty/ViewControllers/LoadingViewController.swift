@@ -10,6 +10,8 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
+    @IBOutlet weak var loaderView: CircularLoaderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UserModel.getToken()
@@ -38,6 +40,10 @@ class LoadingViewController: UIViewController {
         if let image:UIImage  = UIImage(named:"bg"){
             self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
         }
+        
+//        for i in 0..<10 {
+//        loaderView.progress = CGFloat(i/10)/CGFloat(1)
+//        }
     }
     
     // MARK: - Backend methods
