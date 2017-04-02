@@ -22,16 +22,22 @@ class ServersViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //avoid the overlap of UITableView with Status Bar
+        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+    }
+    
     // MARK: - Table view data source (UITable​View​Data​Source)
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if (section==0) {
-//            return 0
-//        }
+        if (section == 0) {
+            return 1
+        }
         return models.count
     }
     
@@ -39,33 +45,62 @@ class ServersViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         if let cell = cell as? ServerTableViewCell {
-            let model = models[indexPath.row]
-            cell.nameLabel.text = model.name
-            cell.nameLabel.sizeToFit()
-            if let distance = model.distance {
-                cell.distanceLabel.text = distance.description+" km"
-                cell.distanceLabel.sizeToFit()
+            switch indexPath.section {
+            case 0:
+                cell.nameLabel?.text = "SERVER"
+                cell.nameLabel?.sizeToFit()
+                cell.distanceLabel?.text = "DISTANCE"
+                cell.nameLabel?.sizeToFit()
+            default:
+                let model = models[indexPath.row]
+                cell.nameLabel?.text = model.name
+                cell.nameLabel?.sizeToFit()
+                if let distance = model.distance {
+                    cell.distanceLabel?.text = distance.description+" km"
+                    cell.distanceLabel?.sizeToFit()
+                }
             }
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Section \(section)"
+//    }
     
     // MARK: - Table view delegate (UITable​View​Delegate)
     
-    override func tableView(_ tableView: UITableView,
-                            viewForHeaderInSection section: Int) -> UIView?
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Header")
-        if let cell = cell as? ServerTableViewCell {
-            cell.nameLabel?.text = "SERVER"
-            cell.distanceLabel?.text = "DISTANCE"
+        //        if let header: UITableViewHeaderFooterView = tableView.headerView(forSection: 0) {
+        //        if let image:UIImage  = UIImage(named: "logo-dark"){
+        //             let imageView = UIImageView(image: image)
+        //            header.addSubview(imageView)
+        //        }
+        if (section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Header")
+//            if let cell = cell as? HeaderTableViewCell
+            return cell
         }
-        return cell
+        return nil
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0) {
+            return 70.0
+        }
+        return 28.0
+    }
+    
+//    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        if let headerView = view as? UITableViewHeaderFooterView  {
+//            headerView.backgroundColor = UIColor.yellow
+//            if let image:UIImage  = UIImage(named: "logo-dark"){
+//                let imageView = UIImageView(image: image)
+//                headerView.addSubview(imageView)
+//            }
+//        }
+//    }
     
     // MARK: - Backend methods
     

@@ -46,9 +46,9 @@ class LoadingViewController: UIViewController {
 //        }
     }
     
-    // MARK: - Backend methods
-    
-
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController: UIViewController = segue.destination as UIViewController
+        destinationViewController.transitioningDelegate = LoginTransitionDelegate()
+    }
 }
 

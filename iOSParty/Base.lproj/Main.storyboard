@@ -159,13 +159,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" id="aRi-gb-uWn" customClass="ServerTableViewCell" customModule="iOSParty" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" id="aRi-gb-uWn" customClass="HeaderTableViewCell" customModule="iOSParty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aRi-gb-uWn" id="beV-K8-VmD">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-dark" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-eD-z9O">
+                                            <rect key="frame" x="6" y="15" width="130" height="34"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fk7-AV-nGy">
+                                            <rect key="frame" x="340" y="17.5" width="29" height="29"/>
+                                            <state key="normal" image="ico-logout"/>
+                                            <connections>
+                                                <action selector="logoutClicked:" destination="aRi-gb-uWn" eventType="touchUpInside" id="oDO-OW-NdM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Fk7-AV-nGy" secondAttribute="trailing" constant="6" id="CuJ-ch-jfv"/>
+                                        <constraint firstItem="sYa-eD-z9O" firstAttribute="leading" secondItem="beV-K8-VmD" secondAttribute="leading" constant="6" id="bhE-8W-ET5"/>
+                                        <constraint firstItem="sYa-eD-z9O" firstAttribute="baseline" secondItem="Fk7-AV-nGy" secondAttribute="baseline" id="iyA-go-tOm"/>
+                                        <constraint firstItem="sYa-eD-z9O" firstAttribute="centerY" secondItem="beV-K8-VmD" secondAttribute="centerY" constant="10" id="m2N-bN-7r5"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="logoImageView" destination="sYa-eD-z9O" id="bpm-S3-hih"/>
+                                    <outlet property="logoutButton" destination="Fk7-AV-nGy" id="vgp-Vq-PDb"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Jlz-Pi-OqA" customClass="ServerTableViewCell" customModule="iOSParty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -174,14 +197,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMa-xP-5fW">
-                                            <rect key="frame" x="14" y="10.5" width="42" height="22.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMa-xP-5fW">
+                                            <rect key="frame" x="14" y="11" width="43" height="22.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-tH-LOb">
-                                            <rect key="frame" x="265.5" y="10.5" width="42" height="22.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMK-tH-LOb">
+                                            <rect key="frame" x="266" y="11" width="66" height="22.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -206,14 +229,15 @@
                             <outlet property="delegate" destination="eGJ-gS-zfY" id="6qU-WA-GKX"/>
                         </connections>
                     </tableView>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxg-eZ-Ne1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="-23"/>
+            <point key="canvasLocation" x="1308" y="-23.838080959520241"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ico-logout" width="29" height="29"/>
+        <image name="logo-dark" width="130" height="34"/>
         <image name="logo-light" width="246" height="64"/>
     </resources>
 </document>
