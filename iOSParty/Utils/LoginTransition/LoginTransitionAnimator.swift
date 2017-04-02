@@ -5,23 +5,29 @@
 //  Created by Darius Miliauskas on 02/04/2017.
 //  Copyright © 2017 Darius Miliauskas. All rights reserved.
 //
-//https://www.raywenderlich.com/110536/custom-uiviewcontroller-transitions
 
 import UIKit
 
 class LoginTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    //var transitionContext: UIViewControllerContextTransitioning?
+//    var transitionContext: UIViewControllerContextTransitioning?
     var originFrame = CGRect.zero
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        //ovalAnimation(transitionContext: transitionContext)
+        revealAnimation(transitionContext: transitionContext)
+    }
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 2
+    }
+    
+    func animationEnded(_ transitionCompleted: Bool) {
         
-        //        self.transitionContext = transitionContext
-        //        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! LoadingViewController
-        //        let containerView = transitionContext.containerView
-        //        let destinationController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
-        //        let destinationView = destinationController.view
-        
+    }
+    
+    //https://www.raywenderlich.com/110536/custom-uiviewcontroller-transitions
+    func revealAnimation(transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
             let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 return
@@ -73,12 +79,45 @@ class LoginTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         })
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.5
+    //Source: http://zappdesigntemplates.com/expanding-circle-viewcontroller-transition/
+    func ovalAnimation(transitionContext: UIViewControllerContextTransitioning) {
+        //self.transitionContext = transitionContext
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! LoadingViewController
+        let containerView = transitionContext.containerView
+        let destinationController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let destinationView = destinationController.view
+        containerView.addSubview(fromViewController.view)
+        containerView.addSubview(destinationView!)
+        
+        let initialFrame = fromViewController.loaderView.frame
+        let maskPath = UIBezierPath(ovalIn: initialFrame)
+        
+        // define the masking layer to be able to show that circle animation
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = (destinationView?.frame)!
+        maskLayer.path = maskPath.cgPath
+        destinationController.view.layer.mask = maskLayer
+        
+        // define the end frame
+        let finalFrame = transitionContext.finalFrame(for: destinationController)
+        let bigCirclePath = UIBezierPath(ovalIn: finalFrame)
+        
+        // create the animation
+        let pathAnimation = CABasicAnimation(keyPath: "path")
+        //pathAnimation.delegate = self
+        pathAnimation.fromValue = maskPath.cgPath
+        pathAnimation.toValue = bigCirclePath
+        pathAnimation.duration = transitionDuration(using: transitionContext)
+        maskLayer.path = bigCirclePath.cgPath
+        maskLayer.add(pathAnimation, forKey: "pathAnimation")
     }
+
+    // MARK: - CAAnimationDelegate
     
-    func animationEnded(_ transitionCompleted: Bool) {
-        
-        
-    }
+//    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+//        if let transitionContext = self.transitionContext {
+//            transitionContext.completeTransition(true)
+//        }
+//    }
+    
 }

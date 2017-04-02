@@ -8,11 +8,10 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController {
+class LoadingViewController: UIViewController, UIViewControllerTransitioningDelegate  {
     
     @IBOutlet weak var loaderView: CircularLoaderView!
-    
-    let loginTransitionAnimator = LoginTransitionAnimator()
+    fileprivate let loginTransitionAnimator = LoginTransitionAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +21,13 @@ class LoadingViewController: UIViewController {
                 sm.getServers() {model in
                     sm = model.first!
                     print(sm)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "loadingToServers", sender: nil)
+                    }
                 }
         }
-        performSegue(withIdentifier: "loadingToServers", sender: self)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addViewStyle()
@@ -53,20 +54,28 @@ class LoadingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier else { return }
-        if id == "loadingToServers" {
-            let destinationViewController: UIViewController = segue.destination as UIViewController
-            destinationViewController.transitioningDelegate = LoginTransitionDelegate()
-            //destinationViewController.transitioningDelegate = self
-            self.present(destinationViewController, animated: true, completion: { _ in })
+        if id == "loadingToServers", let destinationViewController: UIViewController = segue.destination as? ServersViewController {
+            destinationViewController.transitioningDelegate = self
+//             destinationViewController.transitioningDelegate = LoginTransitionDelegate()
+//            destinationViewController.modalPresentationStyle = .custom
+//            let destinationViewController: UIViewController = segue.destination as UIViewControlle
+            //           DispatchQueue.main.async {
+            //self.present(destinationViewController, animated: true, completion: { _ in })
+            //            }
         }
+    }
+    
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        loginTransitionAnimator.originFrame = view.frame
+        return loginTransitionAnimator
     }
 }
 
 //extension LoadingViewController: UIViewControllerTransitioningDelegate {
-//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//
-//        loginTransitionAnimator.originFrame = self.view.frame
-//        return loginTransitionAnimator
-//    }
+
 //}
 

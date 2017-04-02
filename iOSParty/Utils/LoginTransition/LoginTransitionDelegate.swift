@@ -10,9 +10,9 @@ import UIKit
 
 class LoginTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
-    let loginTransitionAnimator = LoginTransitionAnimator()
+    fileprivate let loginTransitionAnimator = LoginTransitionAnimator()
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         loginTransitionAnimator.originFrame = source.view.frame
         return loginTransitionAnimator
     }
