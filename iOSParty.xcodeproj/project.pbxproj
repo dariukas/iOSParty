@@ -29,7 +29,6 @@
 		A335CCB01E8FE074000743C1 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A335CC9D1E8FE074000743C1 /* RobotoCondensed-Regular.ttf */; };
 		A335CCB21E9017DA000743C1 /* SpinnerLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335CCB11E9017DA000743C1 /* SpinnerLoaderView.swift */; };
 		A335CCB41E901CD3000743C1 /* CircularLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335CCB31E901CD3000743C1 /* CircularLoaderView.swift */; };
-		A335CCB61E9036B1000743C1 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A335CCB51E9036B1000743C1 /* ServerTableViewCell.swift */; };
 		A35BACBF1E835D92004B9310 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A35BACBD1E835D92004B9310 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A35BACC31E835DFA004B9310 /* RNCryptor.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A35BACC11E835DFA004B9310 /* RNCryptor.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A35BACC71E83CBD1004B9310 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35BACC61E83CBD1004B9310 /* UserModel.swift */; };
@@ -39,8 +38,12 @@
 		A36A95521E8412EB00BDE440 /* ServersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A954F1E8412EB00BDE440 /* ServersViewController.swift */; };
 		A36A95811E841AF100BDE440 /* iOSPartySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A95801E841AF100BDE440 /* iOSPartySession.swift */; };
 		A36A95841E84203E00BDE440 /* LoginToLoadingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */; };
-		A36CE99D1E90814E00757728 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE99C1E90814E00757728 /* HeaderTableViewCell.swift */; };
-		A36CE99F1E908B6200757728 /* LoginTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE99E1E908B6200757728 /* LoginTransitionDelegate.swift */; };
+		A36CE9A21E91638600757728 /* LoginTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9A11E91638600757728 /* LoginTransitionDelegate.swift */; };
+		A36CE9A71E9163F200757728 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9A51E9163F200757728 /* HeaderTableViewCell.swift */; };
+		A36CE9A81E9163F200757728 /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9A61E9163F200757728 /* ServerTableViewCell.swift */; };
+		A36CE9AA1E91641100757728 /* LoginTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9A91E91641100757728 /* LoginTransitionAnimator.swift */; };
+		A36CE9AE1E916AB000757728 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9AC1E916AB000757728 /* AnimationHelper.swift */; };
+		A36CE9AF1E916AB000757728 /* ViewControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36CE9AD1E916AB000757728 /* ViewControllerProvider.swift */; };
 		A3D8A73A1E80B9B900EDDD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8A7391E80B9B900EDDD04 /* AppDelegate.swift */; };
 		A3D8A73F1E80B9B900EDDD04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3D8A73D1E80B9B900EDDD04 /* Main.storyboard */; };
 		A3D8A7411E80B9B900EDDD04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D8A7401E80B9B900EDDD04 /* Assets.xcassets */; };
@@ -96,7 +99,6 @@
 		A335CC9D1E8FE074000743C1 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		A335CCB11E9017DA000743C1 /* SpinnerLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerLoaderView.swift; sourceTree = "<group>"; };
 		A335CCB31E901CD3000743C1 /* CircularLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularLoaderView.swift; sourceTree = "<group>"; };
-		A335CCB51E9036B1000743C1 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
 		A35BACBD1E835D92004B9310 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		A35BACC11E835DFA004B9310 /* RNCryptor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RNCryptor.framework; path = Carthage/Build/iOS/RNCryptor.framework; sourceTree = "<group>"; };
 		A35BACC61E83CBD1004B9310 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -106,8 +108,12 @@
 		A36A954F1E8412EB00BDE440 /* ServersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServersViewController.swift; sourceTree = "<group>"; };
 		A36A95801E841AF100BDE440 /* iOSPartySession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSPartySession.swift; sourceTree = "<group>"; };
 		A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginToLoadingSegue.swift; sourceTree = "<group>"; };
-		A36CE99C1E90814E00757728 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
-		A36CE99E1E908B6200757728 /* LoginTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTransitionDelegate.swift; sourceTree = "<group>"; };
+		A36CE9A11E91638600757728 /* LoginTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTransitionDelegate.swift; sourceTree = "<group>"; };
+		A36CE9A51E9163F200757728 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A36CE9A61E9163F200757728 /* ServerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
+		A36CE9A91E91641100757728 /* LoginTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTransitionAnimator.swift; sourceTree = "<group>"; };
+		A36CE9AC1E916AB000757728 /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
+		A36CE9AD1E916AB000757728 /* ViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProvider.swift; sourceTree = "<group>"; };
 		A3D8A7361E80B9B900EDDD04 /* iOSParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D8A7391E80B9B900EDDD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D8A73E1E80B9B900EDDD04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,13 +199,12 @@
 		A36A957F1E841AF100BDE440 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A36CE9A41E9163F200757728 /* TableViewCells */,
+				A36CE9A01E91638600757728 /* LoginTransition */,
 				A36A95801E841AF100BDE440 /* iOSPartySession.swift */,
 				A335CC871E8FD937000743C1 /* StyleExtensions.swift */,
 				A335CCB11E9017DA000743C1 /* SpinnerLoaderView.swift */,
 				A335CCB31E901CD3000743C1 /* CircularLoaderView.swift */,
-				A335CCB51E9036B1000743C1 /* ServerTableViewCell.swift */,
-				A36CE99C1E90814E00757728 /* HeaderTableViewCell.swift */,
-				A36CE99E1E908B6200757728 /* LoginTransitionDelegate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -210,6 +215,33 @@
 				A36A95831E84203E00BDE440 /* LoginToLoadingSegue.swift */,
 			);
 			path = Segues;
+			sourceTree = "<group>";
+		};
+		A36CE9A01E91638600757728 /* LoginTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A36CE9A11E91638600757728 /* LoginTransitionDelegate.swift */,
+				A36CE9A91E91641100757728 /* LoginTransitionAnimator.swift */,
+			);
+			path = LoginTransition;
+			sourceTree = "<group>";
+		};
+		A36CE9A41E9163F200757728 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A36CE9A51E9163F200757728 /* HeaderTableViewCell.swift */,
+				A36CE9A61E9163F200757728 /* ServerTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		A36CE9AB1E916AB000757728 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A36CE9AC1E916AB000757728 /* AnimationHelper.swift */,
+				A36CE9AD1E916AB000757728 /* ViewControllerProvider.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A3D8A72D1E80B9B900EDDD04 = {
@@ -235,6 +267,7 @@
 		A3D8A7381E80B9B900EDDD04 /* iOSParty */ = {
 			isa = PBXGroup;
 			children = (
+				A36CE9AB1E916AB000757728 /* Helpers */,
 				A335CC891E8FE045000743C1 /* Resources */,
 				A36A95821E841FDD00BDE440 /* Segues */,
 				A36A957F1E841AF100BDE440 /* Utils */,
@@ -381,6 +414,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36CE9AE1E916AB000757728 /* AnimationHelper.swift in Sources */,
+				A36CE9A21E91638600757728 /* LoginTransitionDelegate.swift in Sources */,
+				A36CE9A71E9163F200757728 /* HeaderTableViewCell.swift in Sources */,
 				A36A95511E8412EB00BDE440 /* LoginViewController.swift in Sources */,
 				A35BACC91E83E01A004B9310 /* ServerModel.swift in Sources */,
 				A35BACC71E83CBD1004B9310 /* UserModel.swift in Sources */,
@@ -388,13 +424,13 @@
 				A335CC881E8FD937000743C1 /* StyleExtensions.swift in Sources */,
 				A335CCB41E901CD3000743C1 /* CircularLoaderView.swift in Sources */,
 				A335CCB21E9017DA000743C1 /* SpinnerLoaderView.swift in Sources */,
-				A36CE99D1E90814E00757728 /* HeaderTableViewCell.swift in Sources */,
 				A36A95521E8412EB00BDE440 /* ServersViewController.swift in Sources */,
-				A36CE99F1E908B6200757728 /* LoginTransitionDelegate.swift in Sources */,
 				A36A95501E8412EB00BDE440 /* LoadingViewController.swift in Sources */,
 				A36A95811E841AF100BDE440 /* iOSPartySession.swift in Sources */,
-				A335CCB61E9036B1000743C1 /* ServerTableViewCell.swift in Sources */,
+				A36CE9A81E9163F200757728 /* ServerTableViewCell.swift in Sources */,
+				A36CE9AA1E91641100757728 /* LoginTransitionAnimator.swift in Sources */,
 				A36A95841E84203E00BDE440 /* LoginToLoadingSegue.swift in Sources */,
+				A36CE9AF1E916AB000757728 /* ViewControllerProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

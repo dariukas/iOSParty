@@ -12,6 +12,8 @@ class LoadingViewController: UIViewController {
     
     @IBOutlet weak var loaderView: CircularLoaderView!
     
+    let loginTransitionAnimator = LoginTransitionAnimator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UserModel.getToken()
@@ -22,6 +24,7 @@ class LoadingViewController: UIViewController {
                     print(sm)
                 }
         }
+        performSegue(withIdentifier: "loadingToServers", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,14 +44,29 @@ class LoadingViewController: UIViewController {
             self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
         }
         
-//        for i in 0..<10 {
-//        loaderView.progress = CGFloat(i/10)/CGFloat(1)
-//        }
+        //        for i in 0..<10 {
+        //        loaderView.progress = CGFloat(i/10)/CGFloat(1)
+        //        }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let destinationViewController: UIViewController = segue.destination as UIViewController
-//        destinationViewController.transitioningDelegate = LoginTransitionDelegate()
-//    }
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let id = segue.identifier else { return }
+        if id == "loadingToServers" {
+            let destinationViewController: UIViewController = segue.destination as UIViewController
+            destinationViewController.transitioningDelegate = LoginTransitionDelegate()
+            //destinationViewController.transitioningDelegate = self
+            self.present(destinationViewController, animated: true, completion: { _ in })
+        }
+    }
 }
+
+//extension LoadingViewController: UIViewControllerTransitioningDelegate {
+//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//
+//        loginTransitionAnimator.originFrame = self.view.frame
+//        return loginTransitionAnimator
+//    }
+//}
 

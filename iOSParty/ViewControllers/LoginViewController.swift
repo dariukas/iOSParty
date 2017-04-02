@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func addGestures() {
         //gesture to navigate
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector(("showSecondViewController")))
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector(("showSecondViewController:")))
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         view.addGestureRecognizer(swipeGestureRecognizer)
         
@@ -65,10 +65,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let image:UIImage  = UIImage(named: imageName){
             textField.leftViewMode = .always
             let imageView = UIImageView(image: image.addImagePadding(x: 15, y: 15))
-               // = (textField.leftView?.frame.insetBy(dx: 10.0, dy: 10.0))!
+            // = (textField.leftView?.frame.insetBy(dx: 10.0, dy: 10.0))!
             textField.leftView = imageView
             view.setNeedsDisplay()
         }
+    }
+    
+    func showSecondViewController(_ sender: Any) {
+        performSegue(withIdentifier: "loginToLoading", sender: sender)
     }
     
     @IBAction func loginClicked(_ sender: Any) {
