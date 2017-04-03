@@ -41,6 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         addImageToTexField(usernameTextField, "ico-username")
         addImageToTexField(passwordTextField, "ico-password")
         loginButton.layer.cornerRadius = 5
+        passwordTextField.isSecureTextEntry = true
     }
     
     func addGestures() {
@@ -86,7 +87,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func login() {
         guard let username = usernameTextField.text, let password = passwordTextField.text, username.characters.count>0,  password.characters.count>0  else {
-            //alert
+            let alert = UIAlertController(title: "tesonet", message: "The username and the password are required.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            })
+            present(alert, animated: true)
             return
         }
         userModel.username = username

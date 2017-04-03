@@ -145,6 +145,7 @@
                     <connections>
                         <outlet property="loaderView" destination="SPR-JM-zQV" id="n3m-FT-KsF"/>
                         <segue destination="eGJ-gS-zfY" kind="show" identifier="loadingToServers" id="VxG-5X-QlB"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loadingToLogin" id="iZa-Tb-Pf8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGd-5J-QU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,6 +176,7 @@
                                             <state key="normal" image="ico-logout"/>
                                             <connections>
                                                 <action selector="logoutClicked:" destination="aRi-gb-uWn" eventType="touchUpInside" id="oDO-OW-NdM"/>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="partialCurl" id="HyS-s3-NZb"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -241,4 +243,7 @@
         <image name="logo-dark" width="130" height="34"/>
         <image name="logo-light" width="246" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iZa-Tb-Pf8"/>
+    </inferredMetricsTieBreakers>
 </document>
