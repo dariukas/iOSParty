@@ -21,14 +21,14 @@ class UserModel: NSObject {
         return _sharedModel
     }
     
-    class func getToken(_ credentials: [String: String], completion: @escaping () -> Void) {
+    class func getToken(_ credentials: [String: String], completion: @escaping (_ success: Bool) -> Void) {
         iOSPartySession.postRequest(api: api+"tokens", parameters: credentials, headers: ["Content-Type": "application/json"]) {(success, json) in
             if (success) {
                 saveToKeychain(credentials: credentials)
                 self.parseModel(userDictionary: json)
-                completion()
+                completion(true)
             } else {
-                //alert
+                completion(false)
             }
         }
     }

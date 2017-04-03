@@ -145,7 +145,7 @@
                     <connections>
                         <outlet property="loaderView" destination="SPR-JM-zQV" id="n3m-FT-KsF"/>
                         <segue destination="eGJ-gS-zfY" kind="show" identifier="loadingToServers" id="VxG-5X-QlB"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="loadingToLogin" id="iZa-Tb-Pf8"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loadingToLogin" modalTransitionStyle="partialCurl" id="iZa-Tb-Pf8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGd-5J-QU3" userLabel="First Responder" sceneMemberID="firstResponder"/>

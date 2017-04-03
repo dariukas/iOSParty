@@ -87,7 +87,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func login() {
         guard let username = usernameTextField.text, let password = passwordTextField.text, username.characters.count>0,  password.characters.count>0  else {
-            let alert = UIAlertController(title: "tesonet", message: "The username and the password are required.", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "tesonet", message: "The username and the password are required! Please, type them.", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
             })
             present(alert, animated: true)

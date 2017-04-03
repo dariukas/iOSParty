@@ -42,14 +42,15 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
         if let image:UIImage  = UIImage(named:"bg"){
             self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
         }
-//        loaderView.progress = CGFloat(i/10)/CGFloat(1)
+        //        loaderView.progress = CGFloat(i/10)/CGFloat(1)
     }
     
     // MARK: - Backend methods
     
     func getList(credentials: [String: String]) {
         UserModel.getToken(credentials)
-            {
+        {success in
+            if (success) {
                 let sm = ServerModel()
                 sm.getServers() {models in
                     self.models = models
@@ -57,6 +58,13 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
                         self.performSegue(withIdentifier: "loadingToServers", sender: nil)
                     }
                 }
+            } else{
+                let alert = UIAlertController(title: "tesonet", message: "The username or the password is incorrect! Please, check them.", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+                    self.performSegue(withIdentifier: "loadingToLogin", sender: nil)
+                })
+                self.present(alert, animated: true)
+            }
         }
     }
     
