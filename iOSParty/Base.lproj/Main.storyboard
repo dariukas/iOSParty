@@ -171,8 +171,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-dark" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-eD-z9O">
                                             <rect key="frame" x="6" y="15" width="130" height="34"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fk7-AV-nGy">
-                                            <rect key="frame" x="340" y="17.5" width="29" height="29"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fk7-AV-nGy">
+                                            <rect key="frame" x="340" y="20" width="29" height="29"/>
                                             <state key="normal" image="ico-logout"/>
                                             <connections>
                                                 <action selector="logoutClicked:" destination="aRi-gb-uWn" eventType="touchUpInside" id="oDO-OW-NdM"/>
@@ -244,6 +244,6 @@
         <image name="logo-light" width="246" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iZa-Tb-Pf8"/>
+        <segue reference="HyS-s3-NZb"/>
     </inferredMetricsTieBreakers>
 </document>

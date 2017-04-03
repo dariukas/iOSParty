@@ -39,6 +39,7 @@ class iOSPartySession: NSObject {
                     completion(true, json as AnyObject)
                 }
             case .failure(let error):
+                completion(false, error as AnyObject)
                 break
                 //print(error)
                 //completion(error as! Dictionary<String, String>)

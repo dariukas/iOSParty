@@ -94,5 +94,4 @@ class CircularLoaderView: UIView, CAAnimationDelegate {
     // MARK: - CAAnimation​Delegate
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
     }
-
 }

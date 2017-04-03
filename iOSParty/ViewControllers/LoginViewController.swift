@@ -36,7 +36,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func addViewStyles() {
         //self.view.backgroundColor = .tesonetBlueColor()
         if let image:UIImage  = UIImage(named:"bg"){
-            self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
+            self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .tesonetBlueColor(), in: self.view.bounds))
         }
         addImageToTexField(usernameTextField, "ico-username")
         addImageToTexField(passwordTextField, "ico-password")

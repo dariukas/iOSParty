@@ -40,7 +40,7 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
     
     func addViewStyle() {
         if let image:UIImage  = UIImage(named:"bg"){
-            self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
+            self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .tesonetBlueColor(), in: self.view.bounds))
         }
         //        loaderView.progress = CGFloat(i/10)/CGFloat(1)
     }

@@ -12,7 +12,7 @@ import UIKit
 extension UIColor {
     
     class func tesonetBlueColor() -> UIColor {
-        return UIColor(red:53.0/255.0, green:58.0/255.0, blue:79.0/255.0, alpha:1);
+        return UIColor(red:11.0/255.0, green:15.0/255.0, blue:39.0/255.0, alpha:0.75);
         
     }
     
