@@ -13,18 +13,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    var userModel = UserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserModel.getToken()
-           {
-            var sm = ServerModel()
-            sm.getServers() {model in
-                sm = model.first!
-                print(sm)
-           }
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         addViewStyles()
         addGestures()
+        setTextFieldsFromKeychain()
     }
     
     // MARK: - Style methods
@@ -52,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func addGestures() {
         //gesture to navigate
-        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector(("showSecondViewController:")))
+        let swipeGestureRecognizer: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(LoginViewController.navigateNext))
         swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.up
         view.addGestureRecognizer(swipeGestureRecognizer)
         
@@ -71,11 +64,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func showSecondViewController(_ sender: Any) {
-        performSegue(withIdentifier: "loginToLoading", sender: sender)
+    func setTextFieldsFromKeychain() {
+        let keychainItemWrapper = KeychainItemWrapper(identifier: "identifier for this item", accessGroup: "access group if shared")
+        if let username = keychainItemWrapper["secretUsername"] as? String, let password = keychainItemWrapper["secretPassword"] as? String {
+            usernameTextField.text = username
+            passwordTextField.text = password
+        }
     }
     
     @IBAction func loginClicked(_ sender: Any) {
+       login()
     }
     
     @IBAction func returnFromSegueActions(sender: UIStoryboardSegue){
@@ -86,6 +84,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    func login() {
+        guard let username = usernameTextField.text, let password = passwordTextField.text, username.characters.count>0,  password.characters.count>0  else {
+            //alert
+            return
+        }
+        userModel.username = username
+        userModel.password = password
+    }
+    
+    func navigateNext() {
+        login()
+        self.performSegue(withIdentifier: "loginToLoading", sender: nil)
+    }
+    
     // MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -94,5 +106,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Backend methods
     
+//    func request() {
+//        UserModel.getToken()
+//            {
+//                var sm = ServerModel()
+//                sm.getServers() {models in
+//                    sm = models.first!
+//                    print(sm)
+//                }
+//        }
+//    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let id = segue.identifier else { return }
+        if id == "loginToLoading", let destinationViewController: LoadingViewController  = segue.destination as? LoadingViewController {
+            destinationViewController.userModel = self.userModel
+        }
+    }
 }
 

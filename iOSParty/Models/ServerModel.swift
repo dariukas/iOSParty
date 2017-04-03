@@ -15,11 +15,11 @@ class ServerModel: NSObject {
     
     func getServers(completion: @escaping (_ models: [ServerModel]) -> Void) {
         
-        guard let token = UserDefaults.standard.value(forKey: "Token") as? String else {
+        guard let data =  UserDefaults.standard.value(forKey: "Token") as? Data else {
             return
         }
         
-        iOSPartySession.getRequest(api: api+"servers", headers: ["Content-Type": "application/json", "Authorization": token]) {(success, json) in
+        iOSPartySession.getRequest(api: api+"servers", headers: ["Content-Type": "application/json", "Authorization": UserModel.decryptToString(data: data)]) {(success, json) in
             if (success) {
                 completion(self.parseModels(data: json as! Array<AnyObject>))
             } else {
@@ -29,7 +29,7 @@ class ServerModel: NSObject {
     }
     
     func parseModels(data: Array<AnyObject>) -> [ServerModel] {
-        print(data)
+        //print(data)
         return data.flatMap{parseModel($0 as! Dictionary<String, AnyObject>)}
     }
     

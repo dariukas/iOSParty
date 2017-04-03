@@ -8,24 +8,22 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController, UIViewControllerTransitioningDelegate  {
+class LoadingViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var loaderView: CircularLoaderView!
     fileprivate let loginTransitionAnimator = LoginTransitionAnimator()
+    var models = [ServerModel]()
+    var userModel = UserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserModel.getToken()
-            {
-                var sm = ServerModel()
-                sm.getServers() {model in
-                    sm = model.first!
-                    print(sm)
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "loadingToServers", sender: nil)
-                    }
-                }
+        if let username = userModel.username, let password = userModel.password {
+            getList(credentials: ["username": username, "password": password])
         }
+//        let keychainItemWrapper = KeychainItemWrapper(identifier: "identifier for this item", accessGroup: "access group if shared")
+//        if let username = keychainItemWrapper["secretUsername"] as? String, let password = keychainItemWrapper["secretPassword"] as? String {
+//                    getList(credentials: ["username": username, "password": password])
+//        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -44,18 +42,31 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
         if let image:UIImage  = UIImage(named:"bg"){
             self.view.backgroundColor = UIColor(patternImage: image.maskWithColor(color: .red, in: self.view.bounds))
         }
-        
-        //        for i in 0..<10 {
-        //        loaderView.progress = CGFloat(i/10)/CGFloat(1)
-        //        }
+//        loaderView.progress = CGFloat(i/10)/CGFloat(1)
+    }
+    
+    // MARK: - Backend methods
+    
+    func getList(credentials: [String: String]) {
+        UserModel.getToken(credentials)
+            {
+                let sm = ServerModel()
+                sm.getServers() {models in
+                    self.models = models
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "loadingToServers", sender: nil)
+                    }
+                }
+        }
     }
     
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let id = segue.identifier else { return }
-        if id == "loadingToServers", let destinationViewController: UIViewController = segue.destination as? ServersViewController {
+        if id == "loadingToServers", let destinationViewController: ServersViewController  = segue.destination as? ServersViewController {
             destinationViewController.transitioningDelegate = self
+            destinationViewController.models = self.models
 //             destinationViewController.transitioningDelegate = LoginTransitionDelegate()
 //            destinationViewController.modalPresentationStyle = .custom
 //            let destinationViewController: UIViewController = segue.destination as UIViewControlle
@@ -64,7 +75,6 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
             //            }
         }
     }
-    
     
     // MARK: - UIViewControllerTransitioningDelegate
     

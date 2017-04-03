@@ -9,8 +9,8 @@
 
 import UIKit
 
-class CircularLoaderView: UIView {
-
+class CircularLoaderView: UIView, CAAnimationDelegate {
+//CAAnimation​Delegate
     let circlePathLayer = CAShapeLayer()
     let circleRadius: CGFloat = 20.0
     
@@ -77,6 +77,7 @@ class CircularLoaderView: UIView {
         groupAnimation.duration = 1.0
         groupAnimation.repeatCount = 10.0
         circlePathLayer.add(groupAnimation, forKey: nil)
+        groupAnimation.delegate = self
 //        circlePathLayer.add(pathStartAnimation, forKey: "strokeStart")
 //        circlePathLayer.add(pathEndAnimation, forKey: "strokeEnd")
         //#keyPath(circlePathLayer.strokeEnd)
@@ -89,5 +90,9 @@ class CircularLoaderView: UIView {
         // Drawing code
     }
     */
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool){
+      print("a")
+    }
 
 }

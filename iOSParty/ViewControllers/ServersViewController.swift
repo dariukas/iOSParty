@@ -14,7 +14,7 @@ class ServersViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getList()
+        //getList()
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,16 +104,14 @@ class ServersViewController: UITableViewController {
     
     // MARK: - Backend methods
     
-    func getList() {
-        UserModel.getToken()
-            {
-                let sm = ServerModel()
-                sm.getServers() {models in
-                    //                sm = model.first!
-                    //                print(sm)
-                    self.models = models
-                    self.tableView.reloadData()
-                }
-        }
-    }
+//    func getList() {
+//        UserModel.getToken()
+//            {
+//                let sm = ServerModel()
+//                sm.getServers() {models in
+//                    self.models = models
+//                    self.tableView.reloadData()
+//                }
+//        }
+//    }
 }
